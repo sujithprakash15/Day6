@@ -3,10 +3,10 @@
 public interface IBatchRepository
 {
     void AddBatch(Batch batch1);
-    void UpdateBatch(int BatchCode, Batch batch2);
-    void DeleteBatch(int BatchCode);
+    Task UpdateBatch(int BatchCode, Batch batch2);
+    Task DeleteBatch(int BatchCode);
     List<Batch> GetAllBatches();
-    Batch GetBatch(int BatchCode);
-    Batch GetBatchByCourse(int CourseCode);
+    Task<Batch> GetBatch(int BatchCode);
+    Task<Batch> GetBatchByCourse(int CourseCode);
 
 }

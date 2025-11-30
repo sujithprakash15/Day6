@@ -11,9 +11,9 @@ public class CourseRepository : ICourseRepository
         list.Add(cmp);
     }
 
-    public void DeleteCourse(int coursecode)
+    public async Task DeleteCourse(int coursecode)
     {
-        Course new1 = GetCourse(coursecode);
+        Course new1 = await GetCourse(coursecode);
         list.Remove(new1);
     }
 
@@ -22,7 +22,7 @@ public class CourseRepository : ICourseRepository
         return list;
     }
 
-    public Course GetCourse(int coursecode)
+    public async Task<Course> GetCourse(int coursecode)
     {
         Course cmp = null;
         foreach(Course course in list)
@@ -36,10 +36,10 @@ public class CourseRepository : ICourseRepository
         return cmp;
     }
 
-    public void UpdateCourse(int coursecode, Course cmp)
+    public async Task UpdateCourse(int coursecode, Course cmp)
     {
-        Course new2 = GetCourse(coursecode);
-        if (coursecode != null)
+        Course new2 = await GetCourse(coursecode);
+        if (new2 != null)
         {
             new2.CourseTitle=cmp.CourseTitle;
             new2.CourseDuration=cmp.CourseDuration;

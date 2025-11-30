@@ -3,9 +3,9 @@
 public interface IStudentRepository
 {
     void AddStudent(Student stu);
-    void UpdateStudent(int RollNo, Student stu);
-    void DeleteStudent(int RollNo);
+    Task UpdateStudent(int RollNo, Student stu);
+    Task DeleteStudent(int RollNo);
     List<Student> GetAllStudents();
-    Student GetStudent(int RollNo);
-    Student GetStudentsByBatch(int BatchCode);
+    Task<Student> GetStudent(int RollNo);
+    Task<Student> GetStudentsByBatch(int BatchCode);
 }

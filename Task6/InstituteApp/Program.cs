@@ -1,12 +1,13 @@
 ﻿using InstituteLibrary;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 class Program
 {
     static ICourseRepository courseinf = new CourseRepository();
     static IBatchRepository batchinf = new BatchRepository();
     static IStudentRepository studentinf = new StudentRepository();
-    static void Main()
+    static async Task Main()
     {
         while (true)
         {
@@ -26,9 +27,9 @@ class Program
                     {
                         case 1: AddCourse(); break;
                         case 2: ViewCourses(); break;
-                        case 3: ViewCourse(); break;
-                        case 4: UpdateCourse(); break;
-                        case 5: DeleteCourse(); break;
+                        case 3: await ViewCourse(); break;
+                        case 4: await UpdateCourse(); break;
+                        case 5: await DeleteCourse(); break;
                         case 6: goto MainMenu;
                     }
                 }
@@ -45,10 +46,10 @@ class Program
                     switch (choicebatch)
                     {
                         case 1: AddBatch(); break;
-                        case 2: ViewBatch(); break;
+                        case 2: await ViewBatch(); break;
                         case 3: ViewBatches(); break;
-                        case 4: UpdateBatch(); break;
-                        case 5: DeleteBatch(); break;
+                        case 4: await UpdateBatch(); break;
+                        case 5: await DeleteBatch(); break;
                         case 6: goto MainMenu;
                     }
                 }
@@ -65,10 +66,10 @@ class Program
                     switch (choicebatch)
                     {
                         case 1: AddStudent(); break;
-                        case 2: ViewStudent(); break;
+                        case 2: await ViewStudent(); break;
                         case 3: ViewStudents(); break;
-                        case 4: UpdateStudent(); break;
-                        case 5: DeleteStudent(); break;
+                        case 4: await UpdateStudent(); break;
+                        case 5: await DeleteStudent(); break;
                         case 6: goto MainMenu;
                     }
                 }
@@ -81,15 +82,15 @@ class Program
 
     //Student Down
 
-    private static void DeleteStudent()
+    private static async Task DeleteStudent()
     {
         Console.WriteLine("Enter Student RollNo: ");
         int new3 = Convert.ToInt32(Console.ReadLine());
         try
         {
-            Student value1 = studentinf.GetStudent(new3);
+            Student value1 = await studentinf.GetStudent(new3);
             Console.WriteLine($"Roll No: {value1.RollNo}, Batch Code: {value1.BatchCode}, Student Address: {value1.StudentAddress}, Student Name: {value1.StudentName}");
-            studentinf.DeleteStudent(new3);
+            await studentinf.DeleteStudent(new3);
         }
         catch (InstituteException ex)
         {
@@ -100,13 +101,13 @@ class Program
 
     }
 
-    private static void UpdateStudent()
+    private static async Task UpdateStudent()
     {
         Console.WriteLine("Enter Student RollNo: ");
         int new3 = Convert.ToInt32(Console.ReadLine());
         try
         {
-            Student value1 = studentinf.GetStudent(new3);
+            Student value1 = await studentinf.GetStudent(new3);
             Console.WriteLine($"Roll No: {value1.RollNo}, Batch Code: {value1.BatchCode}, Student Address: {value1.StudentAddress}, Student Name: {value1.StudentName}");
             Console.WriteLine("Enter RollNo: ");
             value1.RollNo = Convert.ToInt32(Console.ReadLine());
@@ -117,7 +118,7 @@ class Program
             Console.WriteLine("Enter EndDate: ");
             value1.StudentName = Console.ReadLine();
 
-            studentinf.UpdateStudent(new3, value1);
+           await studentinf.UpdateStudent(new3, value1);
         }
         catch (InstituteException ex)
         {
@@ -128,7 +129,7 @@ class Program
 
     }
 
-    private static void ViewStudents()
+    private static async Task ViewStudents()
     {
         List<Student> stud = studentinf.GetAllStudents();
         foreach (Student stu in stud)
@@ -137,16 +138,16 @@ class Program
         }
     }
 
-    private static void ViewStudent()
+    private static async Task ViewStudent()
     {
         Console.WriteLine("Enter Student RollNo: ");
         int new3 = Convert.ToInt32(Console.ReadLine());
-        Student value1 = studentinf.GetStudent(new3);
+        Student value1 = await studentinf.GetStudent(new3);
         Console.WriteLine($"Roll No: {value1.RollNo}, Batch Code: {value1.BatchCode}, Student Address: {value1.StudentAddress}, Student Name: {value1.StudentName}");
         Console.WriteLine("Student Displayed");
     }
 
-    private static void AddStudent()
+    private static async Task AddStudent()
     {
         Student new1 = new Student();
         Console.WriteLine("Enter Batch Code: ");
@@ -170,16 +171,16 @@ class Program
 
     //Batch Down
 
-    private static void DeleteBatch()
+    private static async Task DeleteBatch()
     {
         Console.WriteLine("Enter Batch ID: ");
         int new3 = Convert.ToInt32(Console.ReadLine());
         try
         {
-            Batch value1 = batchinf.GetBatch(new3);
+            Batch value1 = await batchinf.GetBatch(new3);
             Console.WriteLine($"Course ID: {value1.CourseCode}, Batch Code: {value1.BatchCode}, Course StartDate: {value1.StartDate}, Course EndStart: {value1.EndDate}");
 
-            batchinf.DeleteBatch(new3);
+            await batchinf.DeleteBatch(new3);
         }
         catch (InstituteException ex)
         {
@@ -189,13 +190,13 @@ class Program
         Console.WriteLine("Batch Deleted");
     }
 
-    private static void UpdateBatch()
+    private static async Task UpdateBatch()
     {
         Console.WriteLine("Enter Batch ID: ");
         int new3 = Convert.ToInt32(Console.ReadLine());
         try
         {
-            Batch value1 = batchinf.GetBatch(new3);
+            Batch value1 = await batchinf.GetBatch(new3);
             Console.WriteLine($"Course ID: {value1.CourseCode}, Batch Code: {value1.BatchCode}, Course StartDate: {value1.StartDate}, Course EndStart: {value1.EndDate}");
 
 
@@ -208,7 +209,7 @@ class Program
             Console.WriteLine("Enter EndDate: ");
             value1.EndDate = Convert.ToDateTime(Console.ReadLine());
 
-            batchinf.UpdateBatch(new3, value1);
+            await batchinf.UpdateBatch(new3, value1);
         }
         catch (InstituteException ex)
         {
@@ -220,7 +221,7 @@ class Program
 
     }
 
-    private static void ViewBatches()
+    private static async Task ViewBatches()
     {
         List<Batch> new1 = batchinf.GetAllBatches();
         foreach (Batch value1 in new1)
@@ -231,16 +232,16 @@ class Program
         Console.WriteLine("Batches Displayed");
     }
 
-    private static void ViewBatch()
+    private static async Task ViewBatch()
     {
         Console.WriteLine("Enter Batch ID: ");
         int new3 = Convert.ToInt32(Console.ReadLine());
-        Batch value1 = batchinf.GetBatch(new3);
+        Batch value1 = await batchinf.GetBatch(new3);
         Console.WriteLine($"Course ID: {value1.CourseCode}, Batch Code: {value1.BatchCode}, Course StartDate: {value1.StartDate}, Course EndStart: {value1.EndDate}");
         Console.WriteLine("Batch Displayed");
     }
 
-    private static void AddBatch()
+    private static async Task AddBatch()
     {
         Batch new1 = new Batch();
         Console.WriteLine("Enter Batch ID: ");
@@ -266,16 +267,16 @@ class Program
     //Courses Down
 
 
-    private static void DeleteCourse()
+    private static async Task DeleteCourse()
     {
         Console.WriteLine("Enter Course Id: ");
         int courid = Convert.ToInt32(Console.ReadLine());
         try
         {
-            Course course1 = courseinf.GetCourse(courid);
+            Course course1 = await courseinf.GetCourse(courid);
             Console.WriteLine($"Course ID: {course1.CourseCode}, Course Title: {course1.CourseTitle}, Course Duration: {course1.CourseDuration}, Course Fee: {course1.CourseFee}");
 
-            courseinf.DeleteCourse(courid);
+            await courseinf.DeleteCourse(courid);
         }
         catch (InstituteException ex)
         {
@@ -286,13 +287,13 @@ class Program
 
     }
 
-    private static void UpdateCourse()
+    private static async Task UpdateCourse()
     {
         Console.WriteLine("Enter Course Id: ");
         int courid = Convert.ToInt32(Console.ReadLine());
         try
         {
-            Course course1 = courseinf.GetCourse(courid);
+            Course course1 = await courseinf.GetCourse(courid);
             Console.WriteLine($"Course ID: {course1.CourseCode}, Course Title: {course1.CourseTitle}, Course Duration: {course1.CourseDuration}, Course Fee: {course1.CourseFee}");
 
             Console.WriteLine("Enter Course Title: ");
@@ -304,7 +305,7 @@ class Program
             Console.WriteLine("Enter Course CourseFee: ");
             course1.CourseFee = Convert.ToInt32(Console.ReadLine());
 
-            courseinf.UpdateCourse(courid, course1);
+            await courseinf.UpdateCourse(courid, course1);
         }
         catch (InstituteException ex)
         {
@@ -314,15 +315,15 @@ class Program
         Console.WriteLine("Course Updated");
     }
 
-    private static void ViewCourse()
+    private static async Task ViewCourse()
     {
         Console.WriteLine("Enter Course Id: ");
         int courid = Convert.ToInt32(Console.ReadLine());
-        Course course1 = courseinf.GetCourse(courid);
+        Course course1 = await courseinf.GetCourse(courid);
         Console.WriteLine($"Course ID: {course1.CourseCode}, Course Title: {course1.CourseTitle}, Course Duration: {course1.CourseDuration}, Course Fee: {course1.CourseFee}");
     }
 
-    private static void ViewCourses()
+    private static async Task ViewCourses()
     {
         List<Course> new1 = courseinf.GetAllCourse();
         foreach (Course value1 in new1)

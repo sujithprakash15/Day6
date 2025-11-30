@@ -8,9 +8,9 @@ public class BatchRepository : IBatchRepository
         batch.Add(batch1);
     }
 
-    public void DeleteBatch(int BatchCode)
+    public async Task DeleteBatch(int BatchCode)
     {
-        Batch new1 = GetBatch(BatchCode);
+        Batch new1 = await GetBatch(BatchCode);
         batch.Remove(new1);
     }
 
@@ -19,7 +19,7 @@ public class BatchRepository : IBatchRepository
         return batch;
     }
 
-    public Batch GetBatch(int BatchCode)
+    public async Task<Batch> GetBatch(int BatchCode)
     {
         Batch batch2 = null;
         foreach (Batch batch1 in batch)
@@ -33,7 +33,7 @@ public class BatchRepository : IBatchRepository
         return batch2;
     }
 
-    public Batch GetBatchByCourse(int CourseCode)
+    public async Task<Batch> GetBatchByCourse(int CourseCode)
     {
         Batch courcode = null;
         foreach (Batch new2 in batch)
@@ -47,10 +47,10 @@ public class BatchRepository : IBatchRepository
         return courcode;
     }
 
-    public void UpdateBatch(int BatchCode, Batch batch2)
+    public async Task UpdateBatch(int BatchCode, Batch batch2)
     {
-        Batch new3 = GetBatch(BatchCode);
-        if (BatchCode != null)
+        Batch new3 = await GetBatch(BatchCode);
+        if (new3 != null)
         {
             new3.CourseCode = batch2.BatchCode;
             new3.EndDate = batch2.EndDate;

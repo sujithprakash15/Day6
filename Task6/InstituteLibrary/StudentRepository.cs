@@ -9,9 +9,9 @@ public class StudentRepository : IStudentRepository
         student.Add(stu);
     }
 
-    public void DeleteStudent(int RollNo)
+    public async Task DeleteStudent(int RollNo)
     {
-        Student new4 = GetStudent(RollNo);
+        Student new4 = await GetStudent(RollNo);
         student.Remove(new4);
     }
 
@@ -20,7 +20,7 @@ public class StudentRepository : IStudentRepository
         return student;
     }
 
-    public Student GetStudent(int RollNo)
+    public async Task<Student> GetStudent(int RollNo)
     {
         Student stu = null;
         foreach (Student stu1 in student)
@@ -34,7 +34,7 @@ public class StudentRepository : IStudentRepository
         return stu;
     }
 
-    public Student GetStudentsByBatch(int BatchCode)
+    public async Task<Student> GetStudentsByBatch(int BatchCode)
     {
         Student stu1 = null;
         foreach (Student new6 in student)
@@ -48,10 +48,10 @@ public class StudentRepository : IStudentRepository
         return stu1;
     }
 
-    public void UpdateStudent(int RollNo, Student stu)
+    public async Task UpdateStudent(int RollNo, Student stu)
     {
-        Student new1 = GetStudent(RollNo);
-        if (RollNo != null)
+        Student new1 = await GetStudent(RollNo);
+        if (new1 != null)
         {
             new1.BatchCode = stu.BatchCode;
             new1.StudentName = stu.StudentName;
