@@ -16,3 +16,4 @@ C:\Users\WH579UV\Day6\Task6\InstituteApp\obj\Debug\net10.0\refint\InstituteApp.d
 C:\Users\WH579UV\Day6\Task6\InstituteApp\obj\Debug\net10.0\InstituteApp.pdb
 C:\Users\WH579UV\Day6\Task6\InstituteApp\obj\Debug\net10.0\InstituteApp.genruntimeconfig.cache
 C:\Users\WH579UV\Day6\Task6\InstituteApp\obj\Debug\net10.0\ref\InstituteApp.dll
+C:\Users\WH579UV\Day6\Task6\InstituteApp\obj\Debug\net10.0\InstituteApp.sourcelink.json

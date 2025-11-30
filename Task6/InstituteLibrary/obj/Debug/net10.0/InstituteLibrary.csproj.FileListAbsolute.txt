@@ -9,3 +9,4 @@ C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.
 C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\refint\InstituteLibrary.dll
 C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.pdb
 C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\ref\InstituteLibrary.dll
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.sourcelink.json

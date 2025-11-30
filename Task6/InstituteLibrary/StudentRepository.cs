@@ -11,7 +11,8 @@ public class StudentRepository : IStudentRepository
 
     public void DeleteStudent(int RollNo)
     {
-        throw new NotImplementedException();
+        Student new4 = GetStudent(RollNo);
+        student.Remove(new4);
     }
 
     public List<Student> GetAllStudents()
@@ -22,11 +23,11 @@ public class StudentRepository : IStudentRepository
     public Student GetStudent(int RollNo)
     {
         Student stu = null;
-        foreach(Student stu1 in student)
+        foreach (Student stu1 in student)
         {
-            if(stu1.RollNo == RollNo)
+            if (stu1.RollNo == RollNo)
             {
-                stu=stu1;
+                stu = stu1;
                 break;
             }
         }
@@ -35,12 +36,27 @@ public class StudentRepository : IStudentRepository
 
     public Student GetStudentsByBatch(int BatchCode)
     {
-        throw new NotImplementedException();
+        Student stu1 = null;
+        foreach (Student new6 in student)
+        {
+            if (new6.BatchCode == BatchCode)
+            {
+                stu1 = new6;
+                break;
+            }
+        }
+        return stu1;
     }
 
     public void UpdateStudent(int RollNo, Student stu)
     {
         Student new1 = GetStudent(RollNo);
-        
+        if (RollNo != null)
+        {
+            new1.BatchCode = stu.BatchCode;
+            new1.StudentName = stu.StudentName;
+            new1.StudentAddress = stu.StudentAddress;
+        }
+
     }
 }
