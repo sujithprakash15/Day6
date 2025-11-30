@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="InstituteApp/InstituteApp.csproj" />
+  <Project Path="InstituteLibrary/InstituteLibrary.csproj" />
+</Solution>

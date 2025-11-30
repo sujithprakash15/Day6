@@ -1,0 +1,11 @@
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\bin\Debug\net10.0\InstituteLibrary.deps.json
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\bin\Debug\net10.0\InstituteLibrary.dll
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\bin\Debug\net10.0\InstituteLibrary.pdb
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.AssemblyInfoInputs.cache
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.AssemblyInfo.cs
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.csproj.CoreCompileInputs.cache
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.dll
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\refint\InstituteLibrary.dll
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\InstituteLibrary.pdb
+C:\Users\WH579UV\Day6\Task6\InstituteLibrary\obj\Debug\net10.0\ref\InstituteLibrary.dll
